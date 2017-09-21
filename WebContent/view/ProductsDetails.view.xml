@@ -1,0 +1,108 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:t="sap.ui.table"   xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form"
+		controllerName="com.kloudData.controller.ProductsDetails" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Bar>
+		<contentLeft>
+		 <Button press = "onPress" icon="sap-icon://home" />
+		 <!-- <SearchField width="70%" placeholder="Declaration Number" /> -->
+		 </contentLeft>
+		 </Bar>
+	<Page title="Sample Application">
+		<content>
+	<Input class="sapUiSmallMarginBottom" width="600PX"
+				id="declarationInputId"
+				placeholder="Enter ProductName"
+				type="Text"
+				liveChange = "onInputValueChanges">
+	</Input>
+	<Label text="" width="50PX" />
+    <Button text="Search" press="onSearchPress" type="Emphasized" width="100PX" />
+    <Label text="" width="50PX" />		   
+    
+	<t:Table id= "idProductsTable"
+				rows="{/value}"
+				title=""
+				selectionMode="Single"
+				rowSelectionChange = "onTableRowSelect"
+				visibleRowCount="10"
+				cellClick = "onCellPressed" >
+		<t:columns>
+					<t:Column 
+					>
+						<Label text="Product ID"/>
+						<t:template>
+							<Text text="{ProductID}"/>
+						</t:template>
+					</t:Column>
+					<t:Column 
+					>
+						<Label text="Product Name"/>
+						<t:template>
+							<Text text="{ProductName}"/>
+						</t:template>
+					</t:Column>
+					<t:Column 
+					>
+						<Label text="Quantity Per Unit" />
+						<t:template>
+							<Text text="{QuantityPerUnit}" />
+						</t:template>
+					</t:Column>
+					<t:Column >
+						<Label text="Unit Price" />
+						<t:template>
+							<Text text="{path:'UnitPrice',formatter:'com.kloudData.utils.Formatter.removeZeros'}" />
+						</t:template>
+					</t:Column>	
+					<t:Column >
+						<Label text="UnitsInStock" />
+						<t:template>
+							<Text id = "status" text="{UnitsInStock}" />
+						</t:template>
+					</t:Column>		
+					<t:Column >
+						<Label text="Units On Order" />
+						<t:template>
+							<Text text="{UnitsOnOrder}" />
+						</t:template>
+					</t:Column>		
+		</t:columns>	
+	</t:Table>
+	
+	<Panel backgroundDesign="Translucent" 
+		  width="660PX" headerText="Quick Links">
+		  
+		  <content>
+		  <l:VerticalLayout id="panellinks" width="100%" >
+<!-- Block layouts for the links in each line --> 
+		<l:BlockLayout id="BlockLayout" >
+			
+			<l:BlockLayoutRow accentCells="Accent1" class=" customBlockTitle">
+				<l:BlockLayoutCell width="2">
+					<Link
+				text="Amazon"
+				target="_blank"
+				href="https://www.amazon.com"/>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell  width="2" class="customBlockTitle">
+					<Link
+				text="Amway"
+				target="_blank"
+				href="https://www.amway.com" />
+				</l:BlockLayoutCell >
+				<l:BlockLayoutCell  width="2" class="customBlockTitle">
+					<Link
+				text="KD Portal"
+				target="_blank"
+				href="http://portal.klouddata.com" />
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		</l:BlockLayout>
+		
+		</l:VerticalLayout>
+		 
+			</content>
+			</Panel>
+		</content>
+	</Page>
+</core:View>

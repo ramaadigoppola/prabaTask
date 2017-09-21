@@ -1,0 +1,53 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"  xmlns:viz="sap.viz.ui5.controls"
+     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"  xmlns:l="sap.ui.layout"
+		controllerName="com.kloudData.controller.home" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+		 <Panel>   
+             <viz:VizFrame 
+            	id="samplevizframe"
+              visible="true"
+              width="640px"
+              height="480px"
+              vizType="column">
+              	<viz:dataset>
+            			<viz.data:FlattenedDataset data="{/value}">
+            				<viz.data:dimensions>
+              				<viz.data:DimensionDefinition  name="Product Name" value="{ProductName}" />
+              			</viz.data:dimensions>
+              			<viz.data:measures>
+              				<viz.data:MeasureDefinition name="Availabe Stock" value="{UnitsInStock}" />
+              			</viz.data:measures>
+             			</viz.data:FlattenedDataset>
+          			</viz:dataset>
+            	<viz:feeds>
+            		<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Availabe Stock" />
+            		<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Product Name" />
+            	</viz:feeds>
+            </viz:VizFrame>
+            <Button text = "click here to get complete products Details" press = "onButtonPress" type = "Emphasized"/>
+            </Panel>
+                 <l:HorizontalLayout>
+                <viz:Popover id="idPopOver"></viz:Popover>
+             <viz:VizFrame id="idVizFrame" visible="true"
+                height='100%' width="100%" vizType="pie">
+              	<viz:dataset>
+            			<viz.data:FlattenedDataset data="{/value}">
+            				<viz.data:dimensions>
+              				<viz.data:DimensionDefinition  name="Product Name" value="{ProductName}" />
+              			</viz.data:dimensions>
+              			<viz.data:measures>
+              				<viz.data:MeasureDefinition name="Availabe Stock" value="{UnitsInStock}" />
+              			</viz.data:measures>
+             			</viz.data:FlattenedDataset>
+          			</viz:dataset>
+            	<viz:feeds>
+            		<viz.feeds:FeedItem uid="size" type="Measure" values="Availabe Stock" />
+            		<viz.feeds:FeedItem uid="color" type="Dimension" values="Product Name" />
+            	</viz:feeds>
+            </viz:VizFrame>
+          </l:HorizontalLayout>
+		</content>
+	</Page>
+</core:View>
