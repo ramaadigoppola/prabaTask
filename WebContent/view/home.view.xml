@@ -4,9 +4,12 @@
 		controllerName="com.kloudData.controller.home" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Title">
 		<content>
-		 <Panel>   
+             <Panel>
+                <l:HorizontalLayout>
+		   
              <viz:VizFrame 
             	id="samplevizframe"
+            title = "Products Info"
               visible="true"
               width="640px"
               height="480px"
@@ -26,12 +29,12 @@
             		<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Product Name" />
             	</viz:feeds>
             </viz:VizFrame>
-            <Button text = "click here to get complete products Details" press = "onButtonPress" type = "Emphasized"/>
-            </Panel>
-                 <l:HorizontalLayout>
-                <viz:Popover id="idPopOver"></viz:Popover>
+            
+           
+
              <viz:VizFrame id="idVizFrame" visible="true"
-                height='100%' width="100%" vizType="pie">
+                width="640px"
+              height="480px" vizType="pie">
               	<viz:dataset>
             			<viz.data:FlattenedDataset data="{/value}">
             				<viz.data:dimensions>
@@ -47,7 +50,11 @@
             		<viz.feeds:FeedItem uid="color" type="Dimension" values="Product Name" />
             	</viz:feeds>
             </viz:VizFrame>
+                      
           </l:HorizontalLayout>
+                 	<ToolbarSpacer/>
+            <Button text = "click here to get complete products Details" press = "onButtonPress" type = "Emphasized"/>
+                 </Panel>
 		</content>
 	</Page>
 </core:View>
