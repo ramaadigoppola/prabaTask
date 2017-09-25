@@ -15,9 +15,10 @@ xmlns:f="sap.ui.layout.form"
 				type="Text"
 				liveChange = "onInputValueChanges">
 	</Input>
-	<Label text="" width="50PX" />
+    <Button id = "enableButton" text="Testing"  enabled = "true" class="sapUiSmallMarginEnd"/>
     <Button text="Search" press="onSearchPress" type="Emphasized" width="100PX" />
-    <Label text="" width="50PX" />		   
+				
+	   
     
 	<t:Table id= "idProductsTable"
 				rows="{/value}"
