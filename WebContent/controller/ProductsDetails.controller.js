@@ -7,8 +7,15 @@ sap.ui.controller("com.kloudData.controller.ProductsDetails", {
 * @memberOf view.ProductsDetails
 */
 	onInit: function() {
+        var that = this;
 		this.router = sap.ui.core.UIComponent.getRouterFor(this);
 		this.router.attachRoutePatternMatched(this.handleRouteMatch, this);
+        
+        //onMouse event function
+       this.getView().byId("declarationInputId").attachBrowserEvent("mouseenter", function(oEvent) {
+    //get your model and do whatever you want:
+   that.getView().byId("enableButton").setEnabled(!that.getView().byId("enableButton").getEnabled());
+       });
 	},
 	handleRouteMatch:function(route){
 		if (route.getParameter('name') != "Prodcuts")
@@ -51,10 +58,8 @@ sap.ui.controller("com.kloudData.controller.ProductsDetails", {
 * This hook is the same one that SAPUI5 controls get after being rendered.
 * @memberOf view.ProductsDetails
 */
-//	onAfterRendering: function() {
-//
-//	},
-
+	/*onAfterRendering: function() {
+    	}*/
 /**
 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
 * @memberOf view.ProductsDetails
