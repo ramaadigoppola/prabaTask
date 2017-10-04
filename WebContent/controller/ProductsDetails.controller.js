@@ -56,6 +56,7 @@ sap.ui.controller("com.kloudData.controller.ProductsDetails", {
     var fileType = oEvent.getParameters().files[0].type;
     var fileName = oEvent.getParameters().files[0].name;
       var path = URL.createObjectURL(oEvent.getParameters().files[0]);
+      this.getView().byId("imageId").setSrc(path);
         uploadModel = new sap.ui.model.json.JSONModel();
         uploadModel.setSizeLimit(1000);
         var d = {};
@@ -66,8 +67,8 @@ sap.ui.controller("com.kloudData.controller.ProductsDetails", {
         documents=[];
         documents.push(d)
         uploadModel.setData({Documents: documents});
-        this.getView().byId("documentList").setModel(uploadModel);
-         this.getView().byId("documentList").setVisible(true); 
+        //this.getView().byId("documentList").setModel(uploadModel);
+         //this.getView().byId("documentList").setVisible(true); 
 },
     
      onNewDocumentUpload:function(e) { 
