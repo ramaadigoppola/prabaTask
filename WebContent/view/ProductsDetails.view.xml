@@ -60,7 +60,9 @@
                 
                 </f:SimpleForm>
             </l:Grid>
-              <List id="documentList" visible = "false"
+            
+            <Image id = "imageId"></Image>
+              <!--<List id="documentList" visible = "false"
                               items="{
                                      path: '/Documents'
                                      
@@ -74,7 +76,7 @@
                                                   info="{FileSize} KB"
                                                   type="Active" />
                             </items>
-                        </List>
+                        </List>-->
             <Panel backgroundDesign="Translucent" width="660PX" headerText="Quick Links">
 
                 <content>
