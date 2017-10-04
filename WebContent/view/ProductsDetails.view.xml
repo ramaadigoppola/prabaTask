@@ -70,6 +70,7 @@
                                 <StandardListItem
                                                   title="{FileName}"
                                                   description="{FileType}"
+                                                  icon = "{Icon}"
                                                   info="{FileSize} KB"
                                                   type="Active" />
                             </items>
