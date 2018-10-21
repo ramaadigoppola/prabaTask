@@ -6,7 +6,6 @@
 		<content>
              <Panel>
                 <l:HorizontalLayout>
-		   
              <viz:VizFrame 
             	id="samplevizframe"
             title = "Products Info"
